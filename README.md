@@ -38,6 +38,7 @@ app.listen(8080);
 ```html
 <!-- 载入UMeditor，以下文件可存放在CDN -->
 <link rel="stylesheet" href="/umeditor/themes/default/css/umeditor.css">
+<script src="/umeditor/third-party/jquery.min.js"></script>
 <script src="/umeditor/umeditor.config.js"></script>
 <script src="/umeditor/umeditor.min.js"></script>
 <script src="/umeditor/qiniu.js"></script>
