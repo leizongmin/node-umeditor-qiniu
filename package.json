@@ -1,0 +1,27 @@
+{
+  "name": "umeditor-qiniu",
+  "version": "1.0.0",
+  "description": "支持上传图片到七牛的百度UMeditor编辑器",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leizongmin/node-umeditor-qiniu.git"
+  },
+  "keywords": [
+    "qiniu",
+    "ueditor",
+    "umeditor"
+  ],
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leizongmin/node-umeditor-qiniu/issues"
+  },
+  "homepage": "https://github.com/leizongmin/node-umeditor-qiniu",
+  "dependencies": {
+    "qiniu": "^6.1.5"
+  }
+}
