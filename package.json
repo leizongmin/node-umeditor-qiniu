@@ -22,6 +22,9 @@
   },
   "homepage": "https://github.com/leizongmin/node-umeditor-qiniu",
   "dependencies": {
-    "qiniu": "^6.1.5"
+    "connect": "^3.2.0",
+    "debug": "^2.0.0",
+    "qiniu": "^6.1.5",
+    "serve-static": "^1.6.2"
   }
 }

@@ -18,6 +18,12 @@ var editor = new UMeditor(
     secretKey: 'xxx',
     bucket:    'xxx',
     bucketHost:'xxx.qiniudn.com',
+  },
+  static: {          // serve-static模块配置
+    maxAge:   0,
+    hidden:   false,
+    redirect: true
+    index:    'index.html'
   }
 );
 
