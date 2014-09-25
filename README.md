@@ -17,6 +17,7 @@ $ npm install umeditor-qiniu
 var express = require('express');
 var UMeditor = require('umeditor-qiniu');
 
+// 初始化编辑器
 var editor = new UMeditor(
   path: '/umeditor',  // 路径，可选，默认为 /umeditor
   qiniu: {            // 七牛配置，必须
@@ -34,6 +35,8 @@ var editor = new UMeditor(
 );
 
 var app = express();
+
+// 在express或connect实例中使用中间件editor.middleware
 app.use(editor.middleware);
 
 app.listen(8080);
