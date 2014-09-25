@@ -36,32 +36,33 @@
       auto_start: true, //选择文件后自动上传，若关闭需要自己绑定事件触发上传
       init: {
         FilesAdded: function(up, files) {
-          plupload.each(files, function(file) {
-            console.log(file);
-          });
+          // plupload.each(files, function(file) {
+          //   console.log(file);
+          // });
         },
         BeforeUpload: function(up, file) {
-          console.log('BeforeUpload', arguments);
+          // console.log('BeforeUpload', arguments);
+          me.toggleMask('Loading....');
         },
         UploadProgress: function(up, file) {
-          console.log('UploadProgress', arguments);
+          // console.log('UploadProgress', arguments);
           var chunk_size = plupload.parseSize(this.getOption('chunk_size'));
-          console.log('%s, %s/%s', file.percent + "%", up.total.bytesPerSec, chunk_size);
-          currentDialog.showTip(file.percent + '%');
+          // console.log('%s, %s/%s', file.percent + "%", up.total.bytesPerSec, chunk_size);
+          me.toggleMask('uploading... (' + file.percent + '%, ' + up.total.bytesPerSec + '/' + chunk_size + ')');
         },
         FileUploaded: function(up, file, info) {
           var domain = up.getOption('domain');
           var res = JSON.parse(info);
           var sourceLink = domain + res.key;
-          console.log('FileUploaded', sourceLink);
+          // console.log('FileUploaded', sourceLink);
           Base.callback(me.editor, me.dialog, sourceLink, 'SUCCESS');
         },
         Error: function(up, err, errTip) {
-          console.log('Error', arguments);
+          // console.log('Error', arguments);
           currentDialog.showTip(errTip);
         },
         UploadComplete: function() {
-          console.log('UploadComplete', arguments);
+          // console.log('UploadComplete', arguments);
         },
         Key: function(up, file) {
           var now = new Date();
@@ -161,23 +162,6 @@
         });
 
         return this;
-      },
-      createImgBase64: function(img, file, $w) {
-        if (browser.webkit) {
-          //Chrome8+
-          img.src = window.webkitURL.createObjectURL(file);
-        } else if (browser.gecko) {
-          //FF4+
-          img.src = window.URL.createObjectURL(file);
-        } else {
-          //实例化file reader对象
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            img.src = this.result;
-            $w.append(img);
-          };
-          reader.readAsDataURL(file);
-        }
       },
       callback: function(editor, $w, url, state) {
 
