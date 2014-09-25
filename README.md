@@ -3,6 +3,18 @@ node-umeditor-qiniu
 
 支持上传图片到七牛的百度UMeditor编辑器
 
+## 原理
+
+源码目录中的`umeditor`目录为修改过的UMeditor编辑器（版本为1.2.2，只修改了图片上传功能
+文件为`umeditor/dialogs/image.js`），在创建编辑器实例前需要定义以下两个全局变量：
+
++ `QINIU_TOKEN` 上传文件的`upToken`
++ `QINIU_BUCKET_DOMAIN` bucket的域名
+
+以上两个文件通过加载文件`/umeditor/qiniu.init.js`，由服务器自动生成。在实际使用中可以不
+不依赖Node.js，只要加载修改过的UMeditor，并自行生成`upToken`即可。
+
+
 ## 使用方法
 
 安装：
