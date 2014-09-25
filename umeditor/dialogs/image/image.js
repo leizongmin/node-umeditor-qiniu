@@ -19,7 +19,7 @@
     $('.edui-image-file').parent().prop('id', 'umeditor-qiniu-uploader-container');
 
     var uploader = Qiniu.uploader({
-      runtimes: 'html5,flash,html4', //上传模式,依次退化
+      runtimes: 'html5,html4', //上传模式,依次退化 html5,flash,html4
       browse_button: 'umeditor-qiniu-uploader-pick-file', //上传选择的点选按钮，**必需**
       // uptoken_url: '/token', //Ajax请求upToken的Url，**强烈建议设置**（服务端提供）
       uptoken: QINIU_TOKEN, //若未指定uptoken_url,则必须指定 uptoken ,uptoken由其他程序生成
@@ -28,7 +28,7 @@
       domain: 'http://' + QINIU_BUCKET_DOMAIN + '/', //bucket 域名，下载资源时用到，**必需**
       container: 'umeditor-qiniu-uploader-container', //上传区域DOM ID，默认是browser_button的父元素，
       max_file_size: '100mb', //最大文件体积限制
-      flash_swf_url: 'js/plupload/Moxie.swf', //引入flash,相对路径
+      flash_swf_url: '../plupload/Moxie.swf', //引入flash,相对路径
       max_retries: 3, //上传失败最大重试次数
       dragdrop: true, //开启可拖曳上传
       drop_element: 'umeditor-qiniu-uploader-drap', //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
@@ -78,6 +78,15 @@
           return [y, n2(m), n2(d), k + '.' + e].join('/');
         }
       }
+    });
+
+    $(me.dialog).delegate('.edui-image-file', 'change', function(e) {
+      // console.log(e);
+      var files = $(this)[0].files;
+      for (var i = 0; i < files.length; i++) {
+        uploader.addFile(files[i]);
+      }
+      uploader.start();
     });
   }
 
