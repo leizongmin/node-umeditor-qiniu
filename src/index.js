@@ -34,7 +34,12 @@ function UMeditor (options) {
 UMeditor.prototype._responseQiniuInit = function (res) {
   var putPolicy = new qiniu.rs.PutPolicy(this.options.qiniu.bucket);
   var token = putPolicy.token();
-  res.end();
+  res.setHeader('content-type', 'application/javascript');
+  var lines = [
+    'var QINIU_TOKEN = "' + token + '"',
+    'var QINIU_BUCKET_DOMAIN = "' + this.options.qiniu.bucketHost + '"'
+  ];
+  res.end(lines.join(';\n'));
 };
 
 module.exports = exports = UMeditor;
