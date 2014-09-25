@@ -14,9 +14,11 @@
       return new_pass;
     }
 
-    $('.edui-image-dragTip').prop('id', 'umeditor-qiniu-uploader-drap');
-    $('.edui-image-file').prop('id', 'umeditor-qiniu-uploader-pick-file');
-    $('.edui-image-file').parent().prop('id', 'umeditor-qiniu-uploader-container');
+    $('.edui-image-content').append([
+      '<div id="umeditor-qiniu-uploader-pick-file"></div>',
+      '<div id="umeditor-qiniu-uploader-container"></div>',
+    ].join('\n'));
+    $('.edui-image-content').prop('id', 'umeditor-qiniu-uploader-drap');
 
     var uploader = Qiniu.uploader({
       runtimes: 'html5,html4', //上传模式,依次退化 html5,flash,html4
