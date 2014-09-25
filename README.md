@@ -18,14 +18,14 @@ var express = require('express');
 var UMeditor = require('umeditor-qiniu');
 
 var editor = new UMeditor(
-  path: '/umeditor',  // 路径
-  qiniu: {            // 七牛配置
+  path: '/umeditor',  // 路径，可选，默认为 /umeditor
+  qiniu: {            // 七牛配置，必须
     accessKey: 'xxx',
     secretKey: 'xxx',
     bucket:    'xxx',
     bucketHost:'xxx.qiniudn.com',
   },
-  static: {          // serve-static模块配置
+  static: {          // serve-static模块配置，可选
     maxAge:   0,
     hidden:   false,
     redirect: true
