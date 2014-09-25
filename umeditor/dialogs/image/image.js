@@ -1,6 +1,9 @@
 (function() {
 
   function initUmeditorQiniuUploader(me) {
+    // 不用重复初始化
+    if (initUmeditorQiniuUploader.inited) return;
+    initUmeditorQiniuUploader.inited = true;
 
     function randomString(size) {
       size = size || 6;
@@ -269,16 +272,6 @@
         var lang = me.editor.getLang('image');
         Base.callback(me.editor, me.dialog, '', (lang && lang.uploadError) || 'Error!');
       }
-    },
-    //更新input
-    updateInput: function(inputField) {
-
-      $(".edui-image-file", this.dialog).each(function(index, ele) {
-
-        ele.parentNode.replaceChild(inputField.cloneNode(true), ele);
-
-      });
-
     },
     //更新上传框
     updateView: function() {
