@@ -30,7 +30,7 @@ var express = require('express');
 var UMeditor = require('umeditor-qiniu');
 
 // 初始化编辑器
-var editor = new UMeditor(
+var editor = new UMeditor({
   path: '/umeditor',  // 路径，可选，默认为 /umeditor
   qiniu: {            // 七牛配置，必须
     accessKey: 'xxx',
@@ -41,10 +41,10 @@ var editor = new UMeditor(
   static: {          // serve-static模块配置，可选
     maxAge:   0,
     hidden:   false,
-    redirect: true
-    index:    'index.html'
+    redirect: true,
+    index:    'index.html',
   }
-);
+});
 
 var app = express();
 
