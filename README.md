@@ -42,7 +42,7 @@ var editor = new UMeditor({
     maxAge:   0,
     hidden:   false,
     redirect: true,
-    index:    'index.html'
+    index:    'index.html',
   }
 });
 
