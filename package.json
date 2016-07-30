@@ -1,6 +1,6 @@
 {
   "name": "umeditor-qiniu",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "支持上传图片到七牛的百度UMeditor编辑器",
   "main": "src/index.js",
   "scripts": {
