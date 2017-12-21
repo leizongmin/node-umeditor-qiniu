@@ -1,6 +1,8 @@
 node-umeditor-qiniu
 ===================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/leizongmin/node-umeditor-qiniu.svg)](https://greenkeeper.io/)
+
 支持上传图片到七牛的百度UMeditor编辑器
 
 ## 原理
